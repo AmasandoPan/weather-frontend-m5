@@ -1,0 +1,17 @@
+// Mixin para centrar elementos y controlar el box-model
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin para efectos de elevación (Shadows)
+@mixin box-shadow-soft {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+}

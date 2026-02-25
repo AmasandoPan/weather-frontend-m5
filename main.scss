@@ -1,0 +1,17 @@
+//Configuración 
+@import 'scss/base/variables';
+@import 'scss/base/mixins';
+
+//Base
+@import 'scss/base/reset';
+
+//Layout 
+@import 'scss/layout/header';
+@import 'scss/layout/footer';
+
+//Modules (Componentes)
+@import 'scss/modules/weather-card';
+@import 'scss/modules/buttons';
+
+//State (Estados)
+@import 'scss/state/weather-states.scss';
