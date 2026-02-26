@@ -13,6 +13,12 @@ Puedes ver el proyecto funcionando aquí:
 
 ---
 
+## 📸 Vista Previa del Proyecto
+
+![Captura de pantalla de BioWeather](assets/img/captura.png.png)
+
+---
+
 ## 🚀 Características del Proyecto (Módulo 5)
 
 - **Arquitectura Profesional**: Uso de clases para separar la lógica de obtención de datos de la lógica de negocio y renderizado.
@@ -66,7 +72,7 @@ En esta versión, las estadísticas ya no son fijas. Se calculan mediante métod
 ## 👤 Autor
 
 Desarrollado por **AmasandoPan**.
- 
+
 ---
 
 _BioWeather - Módulo 5 (2026)_
