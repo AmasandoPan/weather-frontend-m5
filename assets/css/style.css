@@ -1,4 +1,38 @@
 /* ==========================================================================
+   Hero / Header 
+   ========================================================================== */
+.hero-area {
+  padding: 60px 0 20px 0;
+  position: relative;
+}
+
+.main-title {
+  color: #2c3e50;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-divider {
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  margin: 25px auto;
+  border-radius: 50px;
+}
+
+.hero-area .lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* ==========================================================================
    Base & Layout
    ========================================================================== */
 body {
