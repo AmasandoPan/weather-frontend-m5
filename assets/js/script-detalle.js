@@ -1,4 +1,3 @@
-// Instanciamos la API y la App
 const api = new WeatherAPI("3088fee1626812f0bbd8647a4a38608c");
 const app = new WeatherApp(api);
 
@@ -11,10 +10,10 @@ async function cargarDetalle() {
   }
 
   try {
-    //  Pedimos los datos frescos a la API
+    // pedimos los datos frescos a la API
     const ciudad = await api.getWeatherData(ciudadNombre);
 
-    // Renderizamos la información principal
+    // renderizamos la información principal
     document.getElementById("det-nombre").innerText = ciudad.nombre;
     document.getElementById("det-temp").innerText = `${ciudad.tempActual}°C`;
     document.getElementById("det-estado").innerText = ciudad.estadoActual;
@@ -22,16 +21,16 @@ async function cargarDetalle() {
     document.getElementById("det-viento").innerText = ciudad.viento;
     document.getElementById("det-humedad").innerText = ciudad.humedad;
 
-    // Calculamos estadísticas con el método de nuestra clase
+    // calculamos estadísticas con el metodo de nuestra clase
     const stats = app.calcularEstadisticas(ciudad.pronosticoSemanal);
 
-    // Inyectamos estadísticas en el DOM
+    // inyectamos estadísticas en el DOM
     renderizarEstadisticas(stats);
 
-    //Inyectamos Alertas
+    // inyectamos Alertas
     renderizarAlertas(stats);
 
-    // Renderizamos la lista del pronóstico
+    // renderizamos la lista del pronóstico
     renderizarListaPronostico(ciudad.pronosticoSemanal);
   } catch (error) {
     console.error(error);
@@ -63,12 +62,12 @@ function renderizarAlertas(stats) {
   const resumenElem = document.getElementById("resumen-texto");
   let alertaHTML = "";
 
-  // Alerta de Calor (Promedio > 25°C)
+  // alerta de Calor (Promedio > 25°C)
   if (parseFloat(stats.promedioMax) > 25) {
     alertaHTML += `<div class="alert alert-warning">🔥 Alerta de calor: Semana con temperaturas sobre el promedio.</div>`;
   }
 
-  // Semana Lluviosa (Días de lluvia >= 2)
+  // semana Lluviosa (Días de lluvia >= 2)
   if (stats.conteoLluvia >= 2) {
     alertaHTML += `<div class="alert alert-info">🌧️ Semana lluviosa: Se esperan varios días de precipitaciones.</div>`;
   }

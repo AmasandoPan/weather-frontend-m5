@@ -1,5 +1,5 @@
 /**
- * Clase encargada de la comunicación con OpenWeather API
+ * clase que se encarga de la comunicacion de la API
  */
 class WeatherAPI {
   constructor(apiKey) {
@@ -28,7 +28,7 @@ class WeatherAPI {
   }
 
   transformData(apiData) {
-    // Obtenemos un registro por día (OpenWeather envía cada 3 horas)
+    // obtenemos un registro por dia (se actualiza cada 3 horas)
     const dailyForecast = apiData.list.filter((_, index) => index % 8 === 0);
 
     return {
@@ -64,7 +64,7 @@ class WeatherAPI {
 }
 
 /**
- * Clase principal para la lógica de la App y UI
+ * clase para la logica de la app y ui
  */
 class WeatherApp {
   constructor(apiClient) {
@@ -77,7 +77,7 @@ class WeatherApp {
     window.location.href = "detalle.html";
   }
 
-  // Método para calcular estadísticas según Requisito Módulo 5
+  // metodo para calcular las estadisticas
   calcularEstadisticas(pronostico) {
     let sumaMax = 0;
     let minSemana = pronostico[0].min;
