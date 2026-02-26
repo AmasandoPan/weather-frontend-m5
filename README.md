@@ -65,5 +65,8 @@ En esta versión, las estadísticas ya no son fijas. Se calculan mediante métod
 
 ## 👤 Autor
 
-Desarrollado por **AmasandoPan**. 
+Desarrollado por **AmasandoPan**.
+ 
+---
+
 _BioWeather - Módulo 5 (2026)_
