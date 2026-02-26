@@ -15,7 +15,7 @@ Puedes ver el proyecto funcionando aquí:
 
 ## 📸 Vista Previa del Proyecto
 
-![Captura de pantalla de BioWeather](assets/img/captura.png.png)
+![Captura de pantalla de BioWeather](assets/img/captura.png)
 
 ---
 
