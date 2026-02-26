@@ -1,95 +1,69 @@
-# ☀️ BioWeather - Módulo 4: Lógica y Estadísticas en JavaScript
+# ☀️ BioWeather - Módulo 5: POO y Datos en Tiempo Real
 
 **BioWeather** es una aplicación web diseñada para visualizar el clima regional de manera dinámica. En esta cuarta iteración, el proyecto evoluciona de una interfaz estática a una aplicación funcional capaz de procesar datos, calcular estadísticas climáticas y generar reportes automáticos mediante JavaScript.
+
+**BioWeather** ha evolucionado. En esta quinta iteración, hemos dejado atrás los datos fijos para convertirnos en una aplicación conectada a la realidad. El proyecto ahora utiliza Programación Orientada a Objetos (POO) para gestionar la lógica y consume datos en vivo desde una API externa mediante programación asíncrona.
 
 ---
 
 ## 🚀 Demo en Vivo
 
 Puedes ver el proyecto funcionando aquí:  
-👉 **[VER PROYECTO EN GITHUB PAGES](https://amasandopan.github.io/weather-frontend-m4)**
+👉 **[VER PROYECTO EN GITHUB PAGES](https://amasandopan.github.io/weather-frontend-m5)**
 
 ---
 
-## ✨ Características de esta versión (Módulo 4)
+## 🚀 Características del Proyecto (Módulo 5)
 
-- **Gestión Dinámica de Datos:** Los datos han sido migrados a un modelo de objetos en JavaScript, eliminando el contenido "quemado" en el HTML.
-- **Cálculos Estadísticos:** La aplicación recorre el pronóstico semanal de cada lugar para calcular:
-  - Temperatura mínima absoluta.
-  - Temperatura máxima absoluta.
-  - Promedio de temperaturas máximas de la semana.
-- **Resumen Inteligente:** Generación de mensajes textuales dinámicos basados en la frecuencia de estados climáticos (ej: "Semana mayormente soleada").
-- **Persistencia de Selección:** Uso de `localStorage` para comunicar la elección del usuario entre la vista principal y la vista de detalle.
-- **Arquitectura Modular:** Mantengo la estructura **SMACSS** para CSS y una separación clara de responsabilidades en los archivos JS.
+- **Arquitectura Profesional**: Uso de clases para separar la lógica de obtención de datos de la lógica de negocio y renderizado.
+- **Consumo de API Real**: Integración con **OpenWeatherMap** para obtener datos climáticos actualizados y pronósticos extendidos.
+- **Gestión de Datos Asíncrona**: Implementación de `async/await` para manejar las respuestas de la API de forma eficiente.
+- **Alertas Inteligentes**: Sistema de advertencias basado en el análisis del promedio de temperaturas y la frecuencia de precipitaciones.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🏗️ Estructura de Clases
 
-- **HTML5 & Bootstrap 4:** Estructura y diseño responsivo.
-- **SASS:** Estilos modulares con variables, mixins y metodología BEM.
-- **JavaScript (Vanilla ES6+):** \* Uso de ciclos (`for...of`) para procesamiento de datos.
-  - Funciones de búsqueda y filtrado (`.find()`, `.forEach()`).
-  - Manipulación dinámica del DOM.
+Para cumplir con los requisitos técnicos, el código se organiza en las siguientes clases:
 
----
-
-## 📊 Modelado de Datos
-
-Los datos están organizados en un arreglo de objetos centralizado. Ejemplo de la estructura utilizada:
-
-```javascript
-
-{
-
-id: 1,
-
-nombre: "Santiago",
-
-tempActual: 25,
-
-estadoActual: "Soleado",
-
-pronosticoSemanal: [
-
-{ dia: "Lunes", min: 15, max: 28, estado: "Soleado" },
-
-{ dia: "Martes", min: 14, max: 26, estado: "Nublado" }
-
-// ... total 7 días
-
- ]
-}
-
-```
+1.  **`WeatherAPI`**:
+- **Responsabilidad**: Gestionar la comunicación con el endpoint de OpenWeather.
+- **Métodos clave**: `getWeatherData(identificador)` (realiza el fetch) y `transformData(apiData)` (mapea el JSON de la API al formato interno de la app).
+2.  **`WeatherApp`**:
+- **Responsabilidad**: Controlar el flujo de la aplicación y la interacción con el usuario.
+- **Métodos clave**: `calcularEstadisticas(pronostico)` y `verDetalle(id)` para la navegación mediante `localStorage`.
 
 ---
 
-## 📸 Vista Previa
+## 🌐 API Utilizada
 
-![Captura de pantalla del proyecto](./assets/img/captura.png)
+- **Nombre**: [OpenWeatherMap API](https://openweathermap.org/).
+- **Endpoint**: _5 Day / 3 Hour Forecast_.
+- **Descripción**: Proporciona datos meteorológicos actuales y un pronóstico cada 3 horas para los próximos 5 días, permitiéndonos calcular tendencias semanales con precisión.
 
 ---
 
-## ⚙️ Instalación y Uso Local
+## 📊 Estadísticas y Alertas Climáticas
 
-Si quieres clonar este proyecto y ejecutarlo en tu máquina local, sigue estos pasos:
+En esta versión, las estadísticas ya no son fijas. Se calculan mediante métodos de clase que procesan el arreglo de pronóstico obtenido de la API:
 
-1.  **Clona el repositorio:**
-    ```bash
-    git clone [https://github.com/AmasandoPan/weather-frontend-m4.git]
-    ```
-2.  **Compilación de SASS:** Asegúrate de tener instalado Live Sass Compiler o similar para procesar `/scss/main.scss` hacia `/css/main.css`.
+- **Promedio Máximo**: Se calcula sumando las temperaturas máximas diarias y dividiendo por la cantidad de días del pronóstico.
+- **Alertas de Clima**:
+- **Alerta de Calor**: Se dispara si el promedio de temperatura máxima es superior a **25°C**.
+- **Semana Lluviosa**: Se dispara si se detectan **2 o más días** con estado de lluvia en el reporte.
 
-3.  **Abre el archivo `index.html`** en tu navegador favorito.
+---
+
+## 🛠️ Tecnologías ES6+ Aplicadas
+
+- **Clases**: Para una estructura de código escalable y organizada.
+- **Template Literals**: Para la construcción dinámica de componentes HTML.
+- **Async/Await**: Para un manejo limpio del asincronismo al consumir la API.
+- **Arrow Functions**: Utilizadas en métodos de arreglos (`map`, `filter`, `forEach`) para procesar datos de forma concisa.
 
 ---
 
 ## 👤 Autor
 
-Desarrollado con ❤️ por **AmasandoPan**.
-_Proyecto Clima M4 - 2026_
-
----
-
-© 2026 BioWeather. Todos los derechos reservados.
+Desarrollado por **AmasandoPan**.
+_BioWeather - Módulo 5 (2026)_
