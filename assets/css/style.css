@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Base & Layout
+   ========================================================================== */
+body {
+  background-color: #f4f7f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.layout-header .navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Module: Weather Card
+   ========================================================================== */
+.weather-card {
+  border: none;
+  border-radius: 15px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  background: #fff;
+  overflow: hidden;
+}
+
+.weather-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.weather-card__icon {
+  font-size: 4rem;
+  margin: 15px 0;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.weather-card__temp {
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+/* ==========================================================================
+   State: Weather Conditions
+   ========================================================================== */
+
+/* estado soleado: borde superior naranja y fondo sutil */
+.weather-card.is-sunny {
+  border-top: 6px solid #f39c12;
+  background: linear-gradient(to bottom, #fffaf0, #ffffff);
+}
+
+/* estado lluvioso: borde superior azul y fondo frio sutil */
+.weather-card.is-rainy {
+  border-top: 6px solid #3498db;
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+}
+
+/* ==========================================================================
+   Module: Alerts (Detalle)
+   ========================================================================== */
+.alert {
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 5px solid #ffc107;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 5px solid #17a2b8;
+}
+
+/* animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
